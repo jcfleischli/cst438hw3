@@ -26,12 +26,13 @@ public class CityController {
 		// returns city_info html page will city info if not null.
 		if (cityInfo != null) {
 			model.addAttribute("cityInfo", cityInfo);
-			return "city_not_found";
+			return "showcity";
 		} else {
 			return "city_not_found";
 		}
 	}
 	
+	// gets request parameters from the form and calls the CityService requestReservation method.
 	@PostMapping("/cities/reservation")
 	public String createReservation(
 			@RequestParam("city") String cityName,

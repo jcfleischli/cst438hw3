@@ -28,20 +28,21 @@ public class CityService {
 	@Autowired
 	private FanoutExchange fanout;
 	
-	
-	public void requestReservation (String cityName, String level, String email) {
+	// enqueue a message to a RabbitMQ exchange that contains the email, level and cityName.
+	public void requestReservation(String cityName, String level, String email) {
 		
-		String msg = "{\"cityName\": \"" + cityName + 
-				"\" \"level\": \""+level+
-				"\" \"email\": \""+email+"\"}";
+		String msg  = "{\"cityName\": \""+ cityName + 
+						"\" \"level\": \""+level+
+						"\" \"email\": \""+email+"\"}" ;
 		
-		System.out.println("Sending message: "+msg);
+		System.out.println("Sending message:"+msg);
 		
 		rabbitTemplate.convertSendAndReceive(
-				fanout.getName(),
-				"", // routing key none.
-				msg);
+							fanout.getName(), 
+										  "",   // routing key none.
+										  msg);
 	}
+	
 	public CityInfo getCityInfo(String cityName) {	
 		
 		// get city info from the database.

@@ -43,19 +43,17 @@
 
 		</table>
 		<br><br>
-		<span>For a fabulous weekend get away for 2 to </span>
-		<span th:text="${cityInfo.name}"> sign up here.</span>
-		<br><br>
+		<p>For a fabulous weekend get away for 2 to [[${cityInfo.name}]] sign up here:</p>
 		<form action="#" th:action="@{/cities/reservation(city=${cityInfo.name})}"  method="post">
-			Email: <input type="text" />
-			<br>
-			<input type="radio" id="luxury" name="option" value="luxury">
+			<label for="email">Email:</label>
+			<input type="text" id="email" name="email"><br><br>
+			<input type="radio" id="luxury" name="level" value="Luxury">
 			<label for="luxury">Luxury $1000</label>
 			<br>
-			<input type="radio" id="verygood" name="option" value="verygood">
+			<input type="radio" id="verygood" name="level" value="Very Good">
 			<label for="verygood">Very Good $500</label>
 			<br>
-			<input type="radio" id="good" name="option" value="good">
+			<input type="radio" id="good" name="level" value="Good">
 			<label for="good">Good $350</label>
 			<br>
 			<input type="submit" value="Submit"></input>
