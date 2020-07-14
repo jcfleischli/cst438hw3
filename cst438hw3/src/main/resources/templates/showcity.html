@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<head>
+	<title>City</title>
+</head>
+<body>
+	<div style="padding-left: 20px; padding-top: 20px">
+		<h2>City</h2>
+		<table style="text-align:left">
+			<tr>
+				<th>ID</th>
+				<th th:text="${cityInfo.id}"></th>
+			</tr>
+			<tr>
+				<th>Name</th>
+				<th th:text="${cityInfo.name}"></th>
+			</tr>
+			<tr>
+				<th>Country Code</th>
+				<th th:text="${cityInfo.countryCode}"></th>
+			</tr>
+			<tr>
+				<th>Country Name</th>
+				<th th:text="${cityInfo.countryName}"></th>
+			</tr>
+			<tr>
+				<th>District</th>
+				<th th:text="${cityInfo.district}"></th>
+			</tr>
+			<tr>
+				<th>Population</th>
+				<th th:text="${cityInfo.population}"></th>
+			</tr>
+			<tr>
+				<th>Local Weather</th>
+				<th th:text="${cityInfo.temp} + &#8457"></th>
+			</tr>
+			<tr>
+				<th>Local Time</th>
+				<th th:text="${cityInfo.time}"></th>
+			</tr>
+
+		</table>
+		<br><br>
+		<span>For a fabulous weekend get away for 2 to </span>
+		<span th:text="${cityInfo.name}"> sign up here.</span>
+		<br><br>
+		<form action="#" th:action="@{/cities/reservation(city=${cityInfo.name})}"  method="post">
+			Email: <input type="text" />
+			<br>
+			<input type="radio" id="luxury" name="option" value="luxury">
+			<label for="luxury">Luxury $1000</label>
+			<br>
+			<input type="radio" id="verygood" name="option" value="verygood">
+			<label for="verygood">Very Good $500</label>
+			<br>
+			<input type="radio" id="good" name="option" value="good">
+			<label for="good">Good $350</label>
+			<br>
+			<input type="submit" value="Submit"></input>
+		</form>
+		
+	</div>
+
+</body>
+</html>
